@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北海道 賃上げ環境整備補助金2026 ヒアリングシート</title>
+  <style>
+    :root {
+      --primary: #1a5276;
+      --primary-light: #2e86c1;
+      --accent: #e67e22;
+      --success: #27ae60;
+      --danger: #e74c3c;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --border: #d5d8dc;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+      --label: #1a5276;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 24px 32px 20px; }
+    header h1 { font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+    header p { font-size: 12px; opacity: 0.85; }
+    .badge { display: inline-block; background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px; }
+
+    /* Tab navigation */
+    .tabs { display: flex; background: white; border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .tab-btn { flex: 1; padding: 12px 8px; font-size: 12px; font-weight: 600; border: none; background: none; cursor: pointer; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; font-family: inherit; }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); background: #f0f7ff; }
+    .tab-btn:hover:not(.active) { color: var(--text); background: var(--bg); }
+    .tab-num { display: inline-block; background: var(--border); color: var(--muted); font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; line-height: 18px; text-align: center; margin-right: 4px; }
+    .tab-btn.active .tab-num { background: var(--primary); color: white; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; }
+
+    /* Section */
+    .section { background: var(--card); border-radius: 10px; border: 1px solid var(--border); margin-bottom: 18px; overflow: hidden; }
+    .section-header { background: var(--primary); color: white; padding: 11px 18px; display: flex; align-items: center; gap: 10px; }
+    .section-header h2 { font-size: 13px; font-weight: 700; }
+    .section-body { padding: 18px; }
+    .sec-note { font-size: 11px; color: var(--muted); margin-top: 3px; font-weight: 400; }
+
+    /* Fields */
+    .field-group { margin-bottom: 16px; }
+    .field-group:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 12px; font-weight: 600; color: var(--label); margin-bottom: 5px; }
+    label .req { color: var(--danger); margin-left: 3px; font-size: 10px; font-weight: 400; }
+    label .hint { color: var(--muted); font-size: 11px; font-weight: 400; margin-left: 5px; }
+    input[type="text"], input[type="number"], input[type="tel"], input[type="email"], input[type="date"], select, textarea {
+      width: 100%; border: 1px solid var(--border); border-radius: 6px; padding: 8px 11px; font-size: 13px; font-family: inherit; color: var(--text); background: #fafbfc; transition: border-color 0.15s, box-shadow 0.15s; outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(46,134,193,0.12); background: white; }
+    textarea { resize: vertical; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    @media (max-width: 620px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+    .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px; }
+    .radio-group label, .check-group label { display: flex; align-items: center; gap: 5px; font-weight: 400; color: var(--text); cursor: pointer; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; transition: all 0.15s; margin-bottom: 0; font-size: 12px; }
+    .radio-group input[type="radio"], .check-group input[type="checkbox"] { width: auto; background: none; border: none; padding: 0; box-shadow: none; accent-color: var(--primary); }
+    .radio-group label:has(input:checked), .check-group label:has(input:checked) { background: #eaf4fb; border-color: var(--primary-light); color: var(--primary); font-weight: 600; }
+
+    .alert { border-radius: 6px; padding: 10px 13px; margin-top: 7px; font-size: 12px; line-height: 1.5; }
+    .alert-info { background: #eaf4fb; border-left: 3px solid var(--primary-light); color: #1a4c6e; }
+    .alert-warn { background: #fef9e7; border-left: 3px solid #f1c40f; color: #7d6608; }
+    .alert-danger { background: #fdf2f2; border-left: 3px solid var(--danger); color: #922b21; }
+    .alert-success { background: #eafaf1; border-left: 3px solid var(--success); color: #1e8449; }
+
+    .divider { border: none; border-top: 1px solid #eee; margin: 14px 0; }
+
+    /* Auto-calc displays */
+    .calc-result { display: none; margin-top: 8px; padding: 12px 15px; border-radius: 7px; font-size: 13px; font-weight: 600; }
+    .calc-ok { background: #eafaf1; border: 1px solid #a9dfbf; color: #1e8449; }
+    .calc-warn { background: #fef9e7; border: 1px solid #f9e79f; color: #7d6608; }
+    .calc-ng { background: #fdf2f2; border: 1px solid #f1948a; color: #922b21; }
+
+    /* Expense table */
+    .expense-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+    .expense-table th { background: var(--primary); color: white; padding: 7px 8px; text-align: left; font-weight: 600; }
+    .expense-table td { border: 1px solid var(--border); padding: 5px 7px; vertical-align: middle; }
+    .expense-table td input, .expense-table td select { border: 1px solid #e0e0e0; border-radius: 4px; padding: 4px 6px; font-size: 12px; background: white; width: 100%; }
+    .expense-table tr:nth-child(even) td { background: #fafbfc; }
+    .add-row-btn { margin-top: 8px; padding: 6px 14px; background: var(--bg); border: 1px dashed var(--border); border-radius: 5px; font-size: 12px; cursor: pointer; font-family: inherit; color: var(--muted); transition: all 0.15s; }
+    .add-row-btn:hover { border-color: var(--primary-light); color: var(--primary); background: #eaf4fb; }
+    .del-row { background: none; border: none; cursor: pointer; color: #e74c3c; font-size: 16px; padding: 0 4px; }
+
+    /* Schedule table */
+    .sched-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; }
+    .sched-table th { background: #34495e; color: white; padding: 7px 10px; font-weight: 600; }
+    .sched-table td { border: 1px solid var(--border); padding: 5px 8px; }
+    .sched-table td input { border: 1px solid #e0e0e0; border-radius: 4px; padding: 4px 6px; font-size: 12px; background: white; width: 100%; }
+
+    /* Draft output area */
+    #draft-area { display: none; }
+    .draft-section { background: white; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
+    .draft-header { background: #2c3e50; color: white; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .draft-header span { font-size: 13px; font-weight: 700; }
+    .draft-tag { font-size: 10px; background: var(--accent); padding: 2px 8px; border-radius: 10px; }
+    .draft-body { padding: 16px; }
+    .draft-field { margin-bottom: 14px; }
+    .draft-field:last-child { margin-bottom: 0; }
+    .draft-label { font-size: 11px; color: var(--muted); font-weight: 600; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+    .draft-label .form-ref { background: var(--primary); color: white; font-size: 10px; padding: 1px 6px; border-radius: 3px; }
+    .draft-content { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 14px; font-size: 13px; line-height: 1.8; white-space: pre-wrap; position: relative; }
+    .copy-btn { position: absolute; top: 8px; right: 8px; background: var(--primary); color: white; border: none; border-radius: 4px; padding: 3px 10px; font-size: 11px; cursor: pointer; font-family: inherit; }
+    .copy-btn:hover { background: var(--primary-light); }
+    .copy-btn.copied { background: var(--success); }
+
+    /* Expense summary */
+    .expense-summary { background: #f0f7ff; border: 1px solid #85c1e9; border-radius: 8px; padding: 14px 16px; margin-top: 8px; }
+    .expense-summary table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .expense-summary th { text-align: left; color: var(--primary); font-weight: 700; padding: 4px 8px; border-bottom: 1px solid #85c1e9; }
+    .expense-summary td { padding: 4px 8px; border-bottom: 1px solid #e8f4fb; }
+    .expense-summary .total-row td { font-weight: 700; color: var(--accent); font-size: 14px; border-top: 2px solid #85c1e9; }
+
+    /* Buttons */
+    .btn-row { display: flex; justify-content: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+    .btn { padding: 11px 28px; border-radius: 7px; font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; border: none; transition: all 0.15s; }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-light); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(26,82,118,0.25); }
+    .btn-gen { background: #8e44ad; color: white; font-size: 14px; padding: 13px 36px; }
+    .btn-gen:hover { background: #7d3c98; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(142,68,173,0.35); }
+    .btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+    .btn-print { background: var(--accent); color: white; }
+    .btn-print:hover { background: #d35400; }
+
+    .progress-indicator { text-align: center; padding: 12px; font-size: 12px; color: var(--muted); }
+
+    @media print {
+      .tabs, .btn-row, header { display: none !important; }
+      .tab-panel { display: block !important; }
+      #draft-area { display: block !important; }
+      .copy-btn { display: none !important; }
+    }
+
+    /* ===== SAVE BAR ===== */
+    .save-bar {
+      display: flex; align-items: center; gap: 8px; padding: 7px 16px;
+      background: #f0f4f8; border-bottom: 1px solid var(--border);
+      font-size: 12px; flex-wrap: wrap;
+    }
+    .save-bar-label { color: var(--muted); flex: 1 1 auto; }
+    .save-bar-label strong { color: var(--text); }
+    .btn-save  { background: var(--primary); color: white; border: none; border-radius: 5px; padding: 5px 14px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.15s; }
+    .btn-save:hover  { background: var(--primary-light); }
+    .btn-mgmt  { background: white; color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 5px 14px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.15s; }
+    .btn-mgmt:hover  { background: var(--bg); border-color: var(--primary-light); color: var(--primary); }
+    .btn-new   { background: white; color: var(--success); border: 1px solid var(--success); border-radius: 5px; padding: 5px 14px; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; }
+    .btn-new:hover   { background: #eafaf1; }
+
+    /* ===== MANAGEMENT MODAL ===== */
+    #mgmt-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 1000; align-items: center; justify-content: center; padding: 16px;
+    }
+    .mgmt-modal {
+      background: white; border-radius: 12px; width: 100%; max-width: 720px;
+      max-height: 85vh; display: flex; flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .mgmt-modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .mgmt-modal-header h2 { font-size: 15px; font-weight: 700; color: var(--primary); }
+    .mgmt-close { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--muted); line-height: 1; padding: 4px; }
+    .mgmt-modal-body  { overflow-y: auto; padding: 16px; flex: 1; }
+    .mgmt-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .mgmt-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+    .mgmt-table td { border: 1px solid var(--border); padding: 8px 10px; vertical-align: middle; }
+    .mgmt-table tr:nth-child(even) td { background: #fafbfc; }
+    .mgmt-table tr:hover td { background: #eaf4fb; }
+    .mgmt-modal-footer { padding: 12px 20px; border-top: 1px solid var(--border); text-align: right; }
+
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(10px);
+      background: #2c3e50; color: white; padding: 10px 20px; border-radius: 24px;
+      font-size: 13px; font-weight: 600; z-index: 2000; opacity: 0;
+      transition: opacity 0.3s, transform 0.3s; pointer-events: none; white-space: nowrap;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media print { .save-bar { display: none !important; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">北海道 令和8年度</div>
+  <h1>中小・小規模企業 賃上げ環境整備補助金2026 ヒアリングシート</h1>
+  <p>ヒアリング内容を入力 → 「申請書ドラフト生成」ボタンで申請書の文章を自動作成します。入力内容は外部に送信されません。</p>
+</header>
+
+<!-- Tab navigation -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-num">1</span>基本情報・要件</button>
+  <button class="tab-btn" onclick="switchTab(1)"><span class="tab-num">2</span>賃上げ計画</button>
+  <button class="tab-btn" onclick="switchTab(2)"><span class="tab-num">3</span>事業計画</button>
+  <button class="tab-btn" onclick="switchTab(3)"><span class="tab-num">4</span>経費・書類</button>
+  <button class="tab-btn" onclick="switchTab(4)"><span class="tab-num">✦</span>申請書ドラフト</button>
+</div>
+
+<!-- Save bar -->
+<div class="save-bar">
+  <span class="save-bar-label" id="save-status">&#128161; 入力内容はブラウザに一時保存できます</span>
+  <button class="btn-new"  onclick="newEntry()">&#65291; 新規</button>
+  <button class="btn-mgmt" onclick="showManagement()">&#128203; 案件一覧</button>
+  <button class="btn-save" onclick="saveData(true)">&#128190; 一時保存</button>
+</div>
+
+<!-- ===== TAB 1: 基本情報・要件 ===== -->
+<div class="tab-panel active" id="tab-0">
+<div class="container">
+
+  <div class="section">
+    <div class="section-header"><h2>申請書①企業概要 ─ 基本情報</h2></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field-group">
+          <label>法人名・屋号（漢字）<span class="req">必須</span></label>
+          <input type="text" id="company-name" placeholder="例：株式会社北海フーズ">
+        </div>
+        <div class="field-group">
+          <label>フリガナ</label>
+          <input type="text" id="company-kana" placeholder="例：カブシキカイシャホッカイフーズ">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field-group">
+          <label>代表者役職名<span class="req">必須</span></label>
+          <input type="text" id="rep-title" placeholder="例：代表取締役">
+        </div>
+        <div class="field-group">
+          <label>代表者名（姓 名）<span class="req">必須</span></label>
+          <input type="text" id="rep-name" placeholder="例：山田 太郎">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field-group">
+          <label>郵便番号</label>
+          <input type="text" id="postal" placeholder="例：060-0001">
+        </div>
+        <div class="field-group">
+          <label>所在地（市町村以降）<span class="req">必須</span></label>
+          <input type="text" id="address" placeholder="例：札幌市中央区北1条西2丁目3番">
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field-group">
+          <label>電話番号（優先1）</label>
+          <input type="tel" id="tel1" placeholder="例：011-000-0000">
+        </div>
+        <div class="field-group">
+          <label>電話番号（優先2）</label>
+          <input type="tel" id="tel2" placeholder="例：090-0000-0000">
+        </div>
+      </div>
+      <div class="field-group">
+        <label>法人区分<span class="req">必須</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="corp-type" value="法人"> 法人</label>
+          <label><input type="radio" name="corp-type" value="個人事業者"> 個人事業者</label>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="field-group">
+          <label>法人番号<span class="hint">（法人のみ・13桁）</span></label>
+          <input type="text" id="corp-num" placeholder="例：1234567890123">
+        </div>
+        <div class="field-group">
+          <label>設立年月日</label>
+          <input type="date" id="founded-date">
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="field-group">
+        <label>担当者名<span class="hint">（代表者と異なる場合）</span></label>
+        <input type="text" id="staff-contact" placeholder="例：鈴木 花子">
+      </div>
+      <div class="field-group">
+        <label>担当者メールアドレス</label>
+        <input type="email" id="email" placeholder="例：info@example.co.jp">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><h2>申請書①企業概要 ─ 事業規模・業種</h2></div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>業種<span class="req">必須</span></label>
+        <div class="radio-group" id="industry-radios">
+          <label><input type="radio" name="industry" value="製造業・建設業・運輸業・その他" onchange="checkEligibility()"> 製造業・建設業・運輸業・その他</label>
+          <label><input type="radio" name="industry" value="卸売業" onchange="checkEligibility()"> 卸売業</label>
+          <label><input type="radio" name="industry" value="サービス業" onchange="checkEligibility()"> サービス業</label>
+          <label><input type="radio" name="industry" value="小売業" onchange="checkEligibility()"> 小売業</label>
+          <label><input type="radio" name="industry" value="飲食業（サービス業）" onchange="checkEligibility()"> 飲食業</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>具体的な事業内容</label>
+        <input type="text" id="biz-detail" placeholder="例：ラーメン店／金属加工業／訪問介護サービス">
+      </div>
+      <div class="three-col">
+        <div class="field-group">
+          <label>資本金<span class="hint">（法人・万円）</span></label>
+          <input type="number" id="capital" placeholder="例：500" oninput="checkEligibility()">
+        </div>
+        <div class="field-group">
+          <label>常勤役員・専従者数<span class="hint">人</span></label>
+          <input type="number" id="officer-count" placeholder="例：2">
+        </div>
+        <div class="field-group">
+          <label>常時使用する従業員数<span class="req">必須</span><span class="hint">人</span></label>
+          <input type="number" id="emp-count" placeholder="例：8" oninput="checkEligibility()">
+        </div>
+      </div>
+      <div id="eligibility-result" class="calc-result"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><h2>対象要件チェック</h2></div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>みなし大企業に該当しますか？</label>
+        <div class="radio-group">
+          <label><input type="radio" name="minas" value="非該当" checked> 非該当（独立した中小）</label>
+          <label><input type="radio" name="minas" value="該当"> 該当（要確認・対象外）</label>
+          <label><input type="radio" name="minas" value="要確認"> 要確認</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>除外法人・業種に該当しますか？</label>
+        <div class="radio-group">
+          <label><input type="radio" name="exclude" value="非該当" checked> 非該当</label>
+          <label><input type="radio" name="exclude" value="該当"> 該当（対象外）</label>
+        </div>
+        <div class="alert alert-info">除外対象：社会福祉法人、医療法人、農事組合法人、社団・財団法人、学校法人、宗教法人、風俗営業等</div>
+      </div>
+      <div class="field-group">
+        <label>2025年12月時点の雇用従業員</label>
+        <div class="radio-group">
+          <label><input type="radio" name="emp-dec" value="あり" checked> いる（通常枠・促進枠どちらも可）</label>
+          <label><input type="radio" name="emp-dec" value="新規雇用予定"> いない・2026年中に新規雇用予定（通常枠のみ）</label>
+          <label><input type="radio" name="emp-dec" value="なし"> いない・雇用予定なし（対象外）</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>パートナーシップ構築宣言の状況<span class="req">必須要件</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="partnership" value="公表済み"> 公表済み</label>
+          <label><input type="radio" name="partnership" value="登録済み・未公表"> 登録済み・未公表</label>
+          <label><input type="radio" name="partnership" value="未登録"> 未登録（要対応）</label>
+          <label><input type="radio" name="partnership" value="要確認"> 要確認</label>
+        </div>
+        <div class="alert alert-danger"> 申請日時点で公表済みであることが必須。未登録の場合は今すぐ https://www.biz-partnership.jp/ へ登録してください。</div>
+      </div>
+      <div class="field-group">
+        <label>ヒアリング実施日</label>
+        <input type="date" id="hearing-date">
+      </div>
+      <div class="field-group">
+        <label>担当者名（自社）</label>
+        <input type="text" id="our-staff" placeholder="例：渡辺 さつき">
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="switchTab(1)">次へ：賃上げ計画 →</button>
+  </div>
+</div>
+</div>
+
+<!-- ===== TAB 2: 賃上げ計画 ===== -->
+<div class="tab-panel" id="tab-1">
+<div class="container">
+
+  <div class="section">
+    <div class="section-header"><h2>申請書②申請区分 ─ 賃上げ計画</h2></div>
+    <div class="section-body">
+      <div class="alert alert-info" style="margin-bottom:14px;">
+         基準月：<strong>2025年12月</strong>の平均賃金と比較します。賃上げ要件：通常枠 0%超 ／ 促進枠 4.0%以上（補助率3/4・上限300万円）
+      </div>
+      <div class="two-col">
+        <div class="field-group">
+          <label>2025年12月の従業員平均月給<span class="hint">円・基本給ベース</span></label>
+          <input type="number" id="wage-base" placeholder="例：220000" oninput="calcWage()">
+        </div>
+        <div class="field-group">
+          <label>賃上げ後の予定平均月給<span class="hint">円</span></label>
+          <input type="number" id="wage-after" placeholder="例：230000" oninput="calcWage()">
+        </div>
+      </div>
+      <div id="wage-result" class="calc-result"></div>
+      <hr class="divider">
+      <div class="field-group">
+        <label>賃上げの方法（予定）</label>
+        <div class="check-group" id="wage-methods">
+          <label><input type="checkbox" value="基本給の引上げ"> 基本給の引上げ</label>
+          <label><input type="checkbox" value="手当の新設・増額"> 手当の新設・増額</label>
+          <label><input type="checkbox" value="正社員への転換"> 正社員への転換</label>
+          <label><input type="checkbox" value="新規雇用による賃金水準向上"> 新規雇用</label>
+          <label><input type="checkbox" value="未定・要検討"> 未定</label>
+        </div>
+        <div class="alert alert-warn">⚠️ 時間外手当・賞与・通勤手当・家族手当等は賃上げ計算に含まれません。基本給ベースの引上げが確実です。</div>
+      </div>
+      <div class="field-group">
+        <label>賃上げの実施予定時期</label>
+        <input type="text" id="wage-timing" placeholder="例：2026年10月（補助事業完了前）">
+      </div>
+      <div class="field-group">
+        <label>2025年12月の賃金台帳の準備状況</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ledger" value="準備済み"> 手元にある</label>
+          <label><input type="radio" name="ledger" value="給与ソフトで出力可"> 給与ソフトで出力可</label>
+          <label><input type="radio" name="ledger" value="整備が必要"> 手書き等・整備必要</label>
+        </div>
+        <div class="alert alert-info">「賃金台帳」という標題 ＋ 氏名・賃金計算期間・労働時間数・基本給等の内訳・控除額・支給日の記載が必要。給与明細・支給控除一覧表は不可。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="switchTab(0)">← 戻る</button>
+    <button class="btn btn-primary" onclick="switchTab(2)">次へ：事業計画 →</button>
+  </div>
+</div>
+</div>
+
+<!-- ===== TAB 3: 事業計画 ===== -->
+<div class="tab-panel" id="tab-2">
+<div class="container">
+
+  <div class="section">
+    <div class="section-header"><h2>申請書③事業内容 ─ 現状と課題</h2><span class="sec-note">（申請書「直面している課題」欄の元データ）</span></div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>現在の売上・業績の状況</label>
+        <textarea id="biz-current" rows="2" placeholder="例：売上は年間3,000万円程度で横ばい推移。人手不足で繁忙期の受注を断らざるを得ない状況が続いている。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>コスト面の課題<span class="hint">（エネルギー費・人件費・原材料等）</span></label>
+        <textarea id="cost-issue" rows="2" placeholder="例：電気代が3年前の2倍近くに上昇。材料費も高騰し、利益率が大幅に低下している。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>人材・生産性面の課題</label>
+        <textarea id="labor-issue" rows="2" placeholder="例：繁忙期にパートを増やしたいが採用が難しい。作業の手作業部分が多く、1人あたりの生産量が伸び悩んでいる。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>販路・売上面の課題</label>
+        <textarea id="sales-issue" rows="2" placeholder="例：地元以外への販路がなく、季節変動が大きい。新規顧客への認知手段がチラシ等に限られている。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>賃上げができていない理由・背景</label>
+        <textarea id="wage-issue" rows="2" placeholder="例：売上は維持できているが、コスト増の影響で利益が圧迫されており、給与を上げる原資確保が困難な状況にある。"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><h2>申請書③事業内容 ─ 取組みの内容と効果</h2><span class="sec-note">（申請書「取組みと効果」欄の元データ）</span></div>
+    <div class="section-body">
+      <div class="field-group">
+        <label>取組みのカテゴリ（取組みの性質）</label>
+        <div class="radio-group">
+          <label><input type="radio" name="approach-type" value="新分野展開・事業転換"> 新分野展開・事業転換</label>
+          <label><input type="radio" name="approach-type" value="新商品・新サービス開発"> 新商品・新サービス開発</label>
+          <label><input type="radio" name="approach-type" value="新販売方式の導入"> 新販売方式の導入</label>
+          <label><input type="radio" name="approach-type" value="生産性向上・業務効率化"> 生産性向上・業務効率化</label>
+          <label><input type="radio" name="approach-type" value="デジタル化・IT化"> デジタル化・IT化</label>
+          <label><input type="radio" name="approach-type" value="販路拡大・広報強化"> 販路拡大・広報強化</label>
+          <label><input type="radio" name="approach-type" value="コスト削減・省力化"> コスト削減・省力化</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>導入・実施する内容（具体的に）<span class="req">重要</span></label>
+        <textarea id="approach-content" rows="3" placeholder="例：配膳ロボット1台を導入し、ホール業務の省人化を図る。あわせてセルフオーダーシステムを導入し、注文ミスの削減と顧客単価向上を目指す。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>期待される効果（できれば数値で）<span class="req">重要</span></label>
+        <textarea id="approach-effect" rows="3" placeholder="例：配膳ロボット導入により1日あたりの配膳回数を50回→80回（約60%増）に向上。ホールスタッフの負担軽減により、接客品質の向上と売上10%アップを見込む。浮いた人件費原資を全従業員の月給5%引上げに充当する。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>取組みが賃上げにつながる理由</label>
+        <textarea id="approach-wage-link" rows="2" placeholder="例：本取組みにより、年間売上が〇〇万円増加・コストが〇〇万円削減される見込みであり、その利益改善分を原資として全従業員の給与を引き上げる。"></textarea>
+      </div>
+      <div class="field-group">
+        <label>事業名称（申請書タイトル）<span class="req">必須</span></label>
+        <input type="text" id="project-name" placeholder="例：配膳ロボット＆セルフオーダー導入による省力化・売上向上事業">
+        <div class="alert alert-info" style="margin-top:6px;"> 取組みの内容が一目でわかるシンプルなタイトルを付けます。20〜40文字程度が目安。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><h2>申請書③事業内容 ─ スケジュール</h2></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div class="field-group">
+          <label>事業開始日（発注・契約予定日）</label>
+          <input type="text" id="start-date" placeholder="例：2026年7月">
+        </div>
+        <div class="field-group">
+          <label>事業完了予定日</label>
+          <input type="text" id="end-date" placeholder="例：2026年11月（2027年1月8日まで）">
+        </div>
+      </div>
+      <table class="sched-table" id="sched-table">
+        <thead><tr><th style="width:140px;">年月</th><th>実施内容</th></tr></thead>
+        <tbody id="sched-body">
+          <tr><td><input type="text" placeholder="例：2026年7月"></td><td><input type="text" placeholder="例：見積確定・発注手続き"></td></tr>
+          <tr><td><input type="text" placeholder="例：2026年9月"></td><td><input type="text" placeholder="例：機器納品・設置・試運転"></td></tr>
+          <tr><td><input type="text" placeholder="例：2026年10月"></td><td><input type="text" placeholder="例：本稼働開始・スタッフ研修"></td></tr>
+          <tr><td><input type="text" placeholder="例：2026年11月"></td><td><input type="text" placeholder="例：効果検証・実績報告書作成"></td></tr>
+        </tbody>
+      </table>
+      <button class="add-row-btn" onclick="addSchedRow()">＋ 行を追加</button>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="switchTab(1)">← 戻る</button>
+    <button class="btn btn-primary" onclick="switchTab(3)">次へ：経費・書類 →</button>
+  </div>
+</div>
+</div>
+
+<!-- ===== TAB 4: 経費・書類 ===== -->
+<div class="tab-panel" id="tab-3">
+<div class="container">
+
+  <div class="section">
+    <div class="section-header"><h2>申請書④補助対象経費一覧</h2></div>
+    <div class="section-body">
+      <div class="alert alert-info" style="margin-bottom:12px;">
+        ※金額はすべて<strong>税抜き</strong>で入力してください。10万円以上の品目は相見積もり（2者以上）が必要です。
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="expense-table">
+          <thead>
+            <tr>
+              <th style="width:28px;">No</th>
+              <th style="width:140px;">経費区分</th>
+              <th>品名・内容</th>
+              <th style="width:90px;">単価（税抜）</th>
+              <th style="width:50px;">数量</th>
+              <th style="width:100px;">小計（税抜）</th>
+              <th style="width:60px;">相見積</th>
+              <th style="width:28px;"></th>
+            </tr>
+          </thead>
+          <tbody id="expense-body">
+            <tr>
+              <td style="text-align:center;font-weight:600;">1</td>
+              <td><select class="exp-cat" onchange="calcTotal()">
+                <option value="">選択</option>
+                <option>機械装置・システム等費</option><option>クラウド使用料</option>
+                <option>広報費</option><option>展示会等出展費</option><option>開発費</option>
+                <option>借料</option><option>専門家費用</option><option>委託費</option>
+                <option>外注費</option><option>研修費</option><option>運搬費</option><option>雑役務費</option>
+              </select></td>
+              <td><input type="text" class="exp-name" placeholder="例：配膳ロボット ZWK-A1C"></td>
+              <td><input type="number" class="exp-price" min="0" placeholder="1280540" oninput="calcRow(this)"></td>
+              <td><input type="number" class="exp-qty" min="1" value="1" oninput="calcRow(this)"></td>
+              <td class="exp-subtotal" style="font-weight:600; text-align:right;">─</td>
+              <td style="text-align:center;"><input type="checkbox" class="exp-mitsumori" title="相見積あり"></td>
+              <td><button class="del-row" onclick="delRow(this)" title="削除">×</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="add-row-btn" onclick="addExpenseRow()">＋ 経費を追加</button>
+
+      <div id="expense-total-area" style="margin-top:14px; display:none;">
+        <div class="expense-summary">
+          <table>
+            <tr><th>補助対象経費合計（①）</th><td id="tot-cost" style="text-align:right; font-weight:600;"></td></tr>
+            <tr id="row-sokushin" style="display:none;"><th>促進枠 概算補助額（①×3/4、上限300万円）</th><td id="tot-sokushin" style="text-align:right;"></td></tr>
+            <tr id="row-tsujyo" style="display:none;"><th>通常枠 概算補助額（①×1/2、上限200万円）</th><td id="tot-tsujyo" style="text-align:right;"></td></tr>
+            <tr class="total-row"><th>概算自己負担額</th><td id="tot-burden" style="text-align:right;"></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <div class="field-group">
+        <label>申請予定の枠</label>
+        <div class="radio-group">
+          <label><input type="radio" name="app-frame" value="促進枠" onclick="calcTotal()"> 促進枠（賃上げ4%以上・補助率3/4・上限300万円）</label>
+          <label><input type="radio" name="app-frame" value="通常枠" onclick="calcTotal()"> 通常枠（賃上げ0%超・補助率1/2・上限200万円）</label>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>経費発生の状況</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cost-timing" value="2026年2月20日以降に発注予定"> 2026年2月20日以降に発注予定</label>
+          <label><input type="radio" name="cost-timing" value="2026年2月20日以降にすでに発注済み"> 2026年2月20日以降にすでに発注済み</label>
+          <label><input type="radio" name="cost-timing" value="一部それ以前に発注（要確認）"> 一部それ以前に発注（要確認）</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header"><h2>申請書 添付書類チェック</h2></div>
+    <div class="section-body">
+      <div class="two-col">
+        <div>
+          <p style="font-size:11px; font-weight:700; color:var(--primary); margin-bottom:8px;">【共通】</p>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 補助金交付申請書（様式第1号）</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 誓約書（様式第1号 別紙1）</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 賃上げ誓約書（様式第1号 別紙2）</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> パートナーシップ構築宣言の宣言文</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 2025年12月の賃金台帳</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 見積書・相見積・カタログ等</label>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:11px; font-weight:700; color:var(--primary); margin-bottom:8px;">【法人の場合】</p>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 法人事業概況説明書（表裏）の写し</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 履歴事項全部証明書（3ヶ月以内）</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 営業許可証（許可業種のみ）</label>
+          </div>
+          <p style="font-size:11px; font-weight:700; color:var(--primary); margin: 14px 0 8px;">【個人事業主の場合】</p>
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 令和7年度の青色申告決算書または収支内訳書</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 開業届の控えの写し</label>
+            <label style="font-size:12px; display:flex; align-items:center; gap:6px; font-weight:400; color:var(--text);"><input type="checkbox" style="width:auto; background:none; border:none; padding:0; accent-color:var(--primary);"> 本人確認書類の写し</label>
+          </div>
+        </div>
+      </div>
+      <hr class="divider">
+      <div class="field-group">
+        <label>担当者メモ・次回アクション</label>
+        <textarea id="staff-memo" rows="3" placeholder="例：パートナーシップ構築宣言の登録をすぐに依頼。賃金台帳の様式確認後、申請書の作成支援を開始する。次回面談：〇月〇日。"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="switchTab(2)">← 戻る</button>
+    <button class="btn btn-gen" onclick="generateDraft()">✦ 申請書ドラフトを生成する</button>
+  </div>
+</div>
+</div>
+
+<!-- ===== TAB 5: 申請書ドラフト ===== -->
+<div class="tab-panel" id="tab-4">
+<div class="container">
+
+  <div id="draft-placeholder" style="text-align:center; padding:40px; color:var(--muted);">
+    <p style="font-size:18px; margin-bottom:8px;"></p>
+    <p style="font-size:14px; font-weight:600; margin-bottom:6px;">ドラフトがまだ生成されていません</p>
+    <p style="font-size:12px;">タブ1〜4でヒアリング内容を入力後、「申請書ドラフトを生成する」ボタンを押してください。</p>
+    <button class="btn btn-secondary" style="margin-top:16px;" onclick="switchTab(3)">← 入力画面に戻る</button>
+  </div>
+
+  <div id="draft-area">
+    <!-- Generated here -->
+  </div>
+
+  <div id="draft-actions" style="display:none;">
+    <div class="btn-row">
+      <button class="btn btn-secondary" onclick="switchTab(3)">← ヒアリングに戻る</button>
+      <button class="btn btn-print" onclick="window.print()"> 印刷・PDF保存</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ===== TAB SWITCHING =====
+function switchTab(n) {
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===n));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===n));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ===== INIT =====
+document.getElementById('hearing-date').valueAsDate = new Date();
+
+// ===== ELIGIBILITY CHECK =====
+const industryLimits = {
+  '製造業・建設業・運輸業・その他': 300, '卸売業': 100,
+  'サービス業': 100, '小売業': 50, '飲食業（サービス業）': 100
+};
+function checkEligibility() {
+  const ind = document.querySelector('input[name="industry"]:checked')?.value;
+  const emp = parseInt(document.getElementById('emp-count').value);
+  const el = document.getElementById('eligibility-result');
+  if (!ind || isNaN(emp)) { el.style.display='none'; return; }
+  const limit = industryLimits[ind] || 300;
+  el.style.display = 'block';
+  if (emp <= limit) {
+    el.className = 'calc-result calc-ok';
+    el.innerHTML = `✅ 従業員数 ${emp}人 ─ ${ind}の上限（${limit}人以下）をクリアしています`;
+  } else {
+    el.className = 'calc-result calc-ng';
+    el.innerHTML = `❌ 従業員数 ${emp}人 ─ ${ind}の上限（${limit}人以下）を超えています。対象外の可能性があります`;
+  }
+}
+
+// ===== WAGE CALCULATION =====
+function calcWage() {
+  const base = parseFloat(document.getElementById('wage-base').value);
+  const after = parseFloat(document.getElementById('wage-after').value);
+  const el = document.getElementById('wage-result');
+  if (isNaN(base)||isNaN(after)||base<=0){el.style.display='none';return;}
+  const rate = ((after-base)/base)*100;
+  el.style.display = 'block';
+  if (rate >= 4.0) {
+    el.className = 'calc-result calc-ok';
+    el.innerHTML = ` 賃上げ率 <strong>${rate.toFixed(1)}%</strong> → <strong>促進枠（補助率3/4・上限300万円）</strong>が適用できます`;
+  } else if (rate > 0) {
+    el.className = 'calc-result calc-warn';
+    el.innerHTML = ` 賃上げ率 <strong>${rate.toFixed(1)}%</strong> → 通常枠（補助率1/2・上限200万円）が適用されます。あと${(4-rate).toFixed(1)}%の引上げで促進枠になります`;
+  } else {
+    el.className = 'calc-result calc-ng';
+    el.innerHTML = `⚠️ 賃上げ率が0%以下です。賃上げが必要です`;
+  }
+}
+
+// ===== EXPENSE TABLE =====
+let expRowCount = 1;
+function calcRow(input) {
+  const row = input.closest('tr');
+  const price = parseFloat(row.querySelector('.exp-price').value)||0;
+  const qty = parseFloat(row.querySelector('.exp-qty').value)||1;
+  const subtotal = price * qty;
+  row.querySelector('.exp-subtotal').textContent = subtotal > 0 ? subtotal.toLocaleString() + '円' : '─';
+  calcTotal();
+}
+function calcTotal() {
+  let total = 0;
+  document.querySelectorAll('#expense-body tr').forEach(row => {
+    const price = parseFloat(row.querySelector('.exp-price')?.value)||0;
+    const qty = parseFloat(row.querySelector('.exp-qty')?.value)||1;
+    total += price * qty;
+  });
+  const area = document.getElementById('expense-total-area');
+  if (total <= 0) { area.style.display='none'; return; }
+  area.style.display = 'block';
+  document.getElementById('tot-cost').textContent = total.toLocaleString() + '円';
+  const sokushin = Math.min(total*0.75, 3000000);
+  const tsujyo = Math.min(total*0.5, 2000000);
+  document.getElementById('tot-sokushin').textContent = sokushin.toLocaleString() + '円';
+  document.getElementById('tot-tsujyo').textContent = tsujyo.toLocaleString() + '円';
+  const frame = document.querySelector('input[name="app-frame"]:checked')?.value;
+  let burden = 0;
+  if (frame === '促進枠') { burden = total - sokushin; document.getElementById('row-sokushin').style.display=''; document.getElementById('row-tsujyo').style.display='none'; }
+  else if (frame === '通常枠') { burden = total - tsujyo; document.getElementById('row-tsujyo').style.display=''; document.getElementById('row-sokushin').style.display='none'; }
+  else { document.getElementById('row-sokushin').style.display=''; document.getElementById('row-tsujyo').style.display=''; burden = total - Math.max(sokushin, tsujyo); }
+  document.getElementById('tot-burden').textContent = Math.max(0, burden).toLocaleString() + '円';
+}
+function addExpenseRow() {
+  expRowCount++;
+  const tbody = document.getElementById('expense-body');
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td style="text-align:center;font-weight:600;">${tbody.querySelectorAll('tr').length+1}</td>
+    <td><select class="exp-cat" onchange="calcTotal()">
+      <option value="">選択</option>
+      <option>機械装置・システム等費</option><option>クラウド使用料</option>
+      <option>広報費</option><option>展示会等出展費</option><option>開発費</option>
+      <option>借料</option><option>専門家費用</option><option>委託費</option>
+      <option>外注費</option><option>研修費</option><option>運搬費</option><option>雑役務費</option>
+    </select></td>
+    <td><input type="text" class="exp-name" placeholder="品名・内容"></td>
+    <td><input type="number" class="exp-price" min="0" placeholder="0" oninput="calcRow(this)"></td>
+    <td><input type="number" class="exp-qty" min="1" value="1" oninput="calcRow(this)"></td>
+    <td class="exp-subtotal" style="font-weight:600; text-align:right;">─</td>
+    <td style="text-align:center;"><input type="checkbox" class="exp-mitsumori" title="相見積あり"></td>
+    <td><button class="del-row" onclick="delRow(this)" title="削除">×</button></td>`;
+  tbody.appendChild(tr);
+}
+function delRow(btn) {
+  const tbody = document.getElementById('expense-body');
+  if (tbody.querySelectorAll('tr').length <= 1) return;
+  btn.closest('tr').remove();
+  tbody.querySelectorAll('tr').forEach((r,i) => r.cells[0].textContent = i+1);
+  calcTotal();
+}
+function addSchedRow() {
+  const tbody = document.getElementById('sched-body');
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td><input type="text" placeholder="例：2026年〇月"></td><td><input type="text" placeholder="実施内容"></td>`;
+  tbody.appendChild(tr);
+}
+
+// ===== DRAFT GENERATION =====
+function g(id) { return document.getElementById(id)?.value?.trim() || ''; }
+function gr(name) { return document.querySelector(`input[name="${name}"]:checked`)?.value || ''; }
+function gcb(sel) { return [...document.querySelectorAll(sel+':checked')].map(e=>e.value).filter(Boolean); }
+
+function generateDraft() {
+  const company = g('company-name') || '（会社名）';
+  const industry = gr('industry') || '（業種）';
+  const bizDetail = g('biz-detail') || industry;
+  const empCount = g('emp-count') || '（人数）';
+  const frame = gr('app-frame') || '（枠）';
+
+  const curIssue = g('biz-current');
+  const costIssue = g('cost-issue');
+  const laborIssue = g('labor-issue');
+  const salesIssue = g('sales-issue');
+  const wageIssue = g('wage-issue');
+  const approachType = gr('approach-type') || '';
+  const approachContent = g('approach-content');
+  const approachEffect = g('approach-effect');
+  const approachWageLink = g('approach-wage-link');
+  const projectName = g('project-name') || '（事業名称）';
+  const startDate = g('start-date') || '2026年〇月';
+  const endDate = g('end-date') || '2026年〇月';
+  const wageMethods = gcb('#wage-methods input[type="checkbox"]').join('・') || '（方法）';
+  const wageBase = g('wage-base');
+  const wageAfter = g('wage-after');
+
+  // --- 直面している課題 ドラフト ---
+  let challengeParts = [];
+  if (curIssue) challengeParts.push(curIssue);
+  if (costIssue) challengeParts.push(costIssue);
+  if (laborIssue) challengeParts.push(laborIssue);
+  if (salesIssue) challengeParts.push(salesIssue);
+  if (wageIssue) challengeParts.push(wageIssue);
+
+  let challengeDraft = '';
+  if (challengeParts.length > 0) {
+    challengeDraft = challengeParts.join('また、');
+    if (!challengeDraft.endsWith('。')) challengeDraft += '。';
+    challengeDraft += '\
+\
+こうした状況を打開し、安定的な経営基盤を築くとともに、従業員への持続的な賃上げを実現するための環境整備が喫緊の課題となっている。';
+  } else {
+    challengeDraft = `当社は${bizDetail}を営む${industry}事業者である。\
+\
+エネルギー価格の高止まりや人件費上昇が経営を圧迫しており、生産性向上による収益改善が急務となっている。こうした状況下において、従業員への持続的な賃上げを実現するための環境整備が課題となっている。`;
+  }
+
+  // --- 取組みと効果 ドラフト ---
+  let effectDraft = '';
+  if (approachContent) {
+    effectDraft += `【取組み内容】\
+${approachContent}\
+\
+`;
+  }
+  if (approachType) {
+    effectDraft += `本取組みは、「${approachType}」に該当するものであり、`;
+  }
+  if (approachEffect) {
+    effectDraft += `【期待される効果】\
+${approachEffect}\
+\
+`;
+  }
+  if (approachWageLink) {
+    effectDraft += `【賃上げとの関連】\
+${approachWageLink}`;
+  }
+  if (!effectDraft) {
+    let wageStr = '';
+    if (wageBase && wageAfter) {
+      const rate = ((parseFloat(wageAfter)-parseFloat(wageBase))/parseFloat(wageBase)*100).toFixed(1);
+      wageStr = `本取組みにより生まれた収益改善分を原資として、2025年12月比で平均${rate}%の賃上げ（${wageMethods}）を実施する予定である。`;
+    }
+    effectDraft = `本補助事業を通じて、生産性の向上と売上拡大を実現し、持続的な賃上げ環境の整備を図る。\
+\
+${wageStr}`;
+  }
+  if (!effectDraft.includes('賃上げ') && wageBase && wageAfter) {
+    const rate = ((parseFloat(wageAfter)-parseFloat(wageBase))/parseFloat(wageBase)*100).toFixed(1);
+    effectDraft += `\
+\
+上記取組みにより生じた収益改善を原資として、2025年12月比で平均${rate}%の賃上げ（${wageMethods}）を補助事業完了までに実施する。`;
+  }
+
+  // --- 経費一覧 ---
+  let expenseRows = [];
+  let total = 0;
+  document.querySelectorAll('#expense-body tr').forEach((row, i) => {
+    const cat = row.querySelector('.exp-cat')?.value || '';
+    const name = row.querySelector('.exp-name')?.value || '';
+    const price = parseFloat(row.querySelector('.exp-price')?.value)||0;
+    const qty = parseInt(row.querySelector('.exp-qty')?.value)||1;
+    const mitsumori = row.querySelector('.exp-mitsumori')?.checked;
+    if (name || price > 0) {
+      const sub = price * qty;
+      total += sub;
+      expenseRows.push({ no: i+1, cat, name, price, qty, sub, mitsumori });
+    }
+  });
+  const appFrame = gr('app-frame');
+  const subsidyRate = appFrame === '促進枠' ? 0.75 : 0.5;
+  const maxSubsidy = appFrame === '促進枠' ? 3000000 : 2000000;
+  const subsidyAmt = Math.floor(Math.min(total * subsidyRate, maxSubsidy) / 1000) * 1000;
+  const burden = total - subsidyAmt;
+
+  // --- スケジュール ---
+  let schedRows = [];
+  document.querySelectorAll('#sched-body tr').forEach(row => {
+    const cells = row.querySelectorAll('input');
+    const month = cells[0]?.value?.trim() || '';
+    const content = cells[1]?.value?.trim() || '';
+    if (month || content) schedRows.push({ month, content });
+  });
+
+  // Build the output HTML
+  const draftArea = document.getElementById('draft-area');
+  draftArea.innerHTML = `
+    <div class="alert alert-success" style="margin-bottom:16px;">
+      ✅ 申請書ドラフトを生成しました。各項目の内容を確認・修正のうえ、申請書に転記してください。
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書①②　企業概要・申請区分</span>
+        <span class="draft-tag">そのまま転記</span>
+      </div>
+      <div class="draft-body">
+        <div class="two-col" style="gap:16px;">
+          <div>
+            ${row('事業者名', g('company-name') || '─')}
+            ${row('フリガナ', g('company-kana') || '─')}
+            ${row('代表者役職名', g('rep-title') || '─')}
+            ${row('代表者名', g('rep-name') || '─')}
+            ${row('所在地', (g('postal') ? '〒' + g('postal') + ' 北海道' : '') + g('address') || '─')}
+            ${row('電話番号（優先1）', g('tel1') || '─')}
+            ${row('担当者', g('staff-contact') || '代表者と同じ')}
+          </div>
+          <div>
+            ${row('申請者種別', gr('corp-type') || '─')}
+            ${row('法人番号', g('corp-num') || '─')}
+            ${row('設立年月日', g('founded-date') || '─')}
+            ${row('業種', gr('industry') || '─')}
+            ${row('資本金', g('capital') ? g('capital') + '万円' : '─')}
+            ${row('常時使用従業員数', g('emp-count') ? g('emp-count') + '人' : '─')}
+            ${row('申請区分', appFrame || '─')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書③　事業名称</span>
+        <span class="draft-tag">転記・要確認</span>
+      </div>
+      <div class="draft-body">
+        <div class="draft-field">
+          <div class="draft-label"><span class="form-ref">申請書 事業名称欄</span> タイトル（20〜40文字程度）</div>
+          <div class="draft-content" id="dc-projname">${escHtml(projectName)}<button class="copy-btn" onclick="copyDraft('dc-projname', this)">コピー</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書③　直面している課題</span>
+        <span class="draft-tag">別紙添付不可・フォーム直接入力</span>
+      </div>
+      <div class="draft-body">
+        <div class="alert alert-warn" style="margin-bottom:10px;">⚠️ 申請書の欄に直接入力してください（別紙は認められません）。内容を確認・編集後、そのまま申請書にコピーしてください。</div>
+        <div class="draft-field">
+          <div class="draft-label"><span class="form-ref">申請書 直面している課題 欄</span></div>
+          <div class="draft-content" id="dc-challenge">${escHtml(challengeDraft)}<button class="copy-btn" onclick="copyDraft('dc-challenge', this)">コピー</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書③　取組みと効果</span>
+        <span class="draft-tag">別紙添付不可・フォーム直接入力</span>
+      </div>
+      <div class="draft-body">
+        <div class="draft-field">
+          <div class="draft-label"><span class="form-ref">申請書 取組みと効果 欄</span></div>
+          <div class="draft-content" id="dc-effect">${escHtml(effectDraft)}<button class="copy-btn" onclick="copyDraft('dc-effect', this)">コピー</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書③　スケジュール</span>
+        <span class="draft-tag">表に転記</span>
+      </div>
+      <div class="draft-body">
+        ${row('事業実施期間', startDate + ' 〜 ' + endDate)}
+        <table style="width:100%; border-collapse:collapse; font-size:12px; margin-top:10px;">
+          <thead><tr style="background:#34495e; color:white;"><th style="padding:6px 10px; text-align:left;">年月</th><th style="padding:6px 10px; text-align:left;">内容</th></tr></thead>
+          <tbody>
+            ${schedRows.length > 0
+              ? schedRows.map(r=>`<tr style="border-bottom:1px solid #eee;"><td style="padding:6px 10px;">${escHtml(r.month)}</td><td style="padding:6px 10px;">${escHtml(r.content)}</td></tr>`).join('')
+              : '<tr><td colspan="2" style="padding:10px; color:#999; text-align:center;">スケジュールが未入力です</td></tr>'
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="draft-section">
+      <div class="draft-header">
+        <span> 申請書④　補助対象経費・申請額</span>
+        <span class="draft-tag">表に転記</span>
+      </div>
+      <div class="draft-body">
+        <table style="width:100%; border-collapse:collapse; font-size:12px;">
+          <thead>
+            <tr style="background:#1a5276; color:white;">
+              <th style="padding:6px 8px;">No</th>
+              <th style="padding:6px 8px;">経費区分</th>
+              <th style="padding:6px 8px;">品名・内容</th>
+              <th style="padding:6px 8px; text-align:right;">単価（税抜）</th>
+              <th style="padding:6px 8px; text-align:center;">数量</th>
+              <th style="padding:6px 8px; text-align:right;">小計（税抜）</th>
+              <th style="padding:6px 8px; text-align:center;">相見積</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${expenseRows.length > 0
+              ? expenseRows.map(r=>`<tr style="border-bottom:1px solid #eee;">
+                  <td style="padding:6px 8px; text-align:center;">${r.no}</td>
+                  <td style="padding:6px 8px;">${escHtml(r.cat)}</td>
+                  <td style="padding:6px 8px;">${escHtml(r.name)}</td>
+                  <td style="padding:6px 8px; text-align:right;">${r.price.toLocaleString()}円</td>
+                  <td style="padding:6px 8px; text-align:center;">${r.qty}</td>
+                  <td style="padding:6px 8px; text-align:right; font-weight:600;">${r.sub.toLocaleString()}円</td>
+                  <td style="padding:6px 8px; text-align:center;">${r.mitsumori ? '✅' : '─'}</td>
+                </tr>`).join('')
+              : '<tr><td colspan="7" style="padding:10px; color:#999; text-align:center;">経費が未入力です</td></tr>'
+            }
+            <tr style="background:#eaf4fb; font-weight:700;">
+              <td colspan="5" style="padding:8px; text-align:right;">①補助対象経費合計（税抜）</td>
+              <td style="padding:8px; text-align:right;">${total.toLocaleString()}円</td><td></td>
+            </tr>
+            <tr style="background:#fff3e0; font-weight:700; color:#e67e22;">
+              <td colspan="5" style="padding:8px; text-align:right;">②補助金申請額（${appFrame || '─'}・千円未満切捨）</td>
+              <td style="padding:8px; text-align:right;">${subsidyAmt.toLocaleString()}円</td><td></td>
+            </tr>
+            <tr style="background:#eee;">
+              <td colspan="5" style="padding:8px; text-align:right;">自己負担額（概算）</td>
+              <td style="padding:8px; text-align:right;">${burden.toLocaleString()}円</td><td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('draft-placeholder').style.display = 'none';
+  document.getElementById('draft-actions').style.display = 'block';
+  switchTab(4);
+}
+
+function row(label, val) {
+  return `<div style="display:flex; gap:10px; padding:5px 0; border-bottom:1px solid #f5f5f5; font-size:12px;">
+    <span style="flex:0 0 160px; color:var(--muted);">${label}</span>
+    <span style="font-weight:500;">${escHtml(val)}</span>
+  </div>`;
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\
+/g,'<br>');
+}
+
+function copyDraft(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText.replace('コピー','').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ コピー済';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='コピー'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ===== 一時保存 / 管理画面 =====
+let currentSaveKey = null;
+
+function collectFormData() {
+  const data = { version: 2, savedAt: new Date().toISOString() };
+  document.querySelectorAll('input[id], textarea[id], select[id]').forEach(el => {
+    if (el.type === 'radio' || el.type === 'checkbox') return;
+    data[el.id] = el.value;
+  });
+  document.querySelectorAll('input[type="radio"]').forEach(el => {
+    if (el.checked) data['_r_' + el.name] = el.value;
+  });
+  document.querySelectorAll('input[type="checkbox"][id]').forEach(el => {
+    data['_cb_' + el.id] = el.checked;
+  });
+  // Expense rows
+  data._expenseRows = [];
+  document.querySelectorAll('#expense-body tr').forEach(tr => {
+    data._expenseRows.push({
+      cat:       tr.querySelector('.exp-cat')?.value      || '',
+      name:      tr.querySelector('.exp-name')?.value     || '',
+      price:     tr.querySelector('.exp-price')?.value    || '',
+      qty:       tr.querySelector('.exp-qty')?.value      || '1',
+      mitsumori: tr.querySelector('.exp-mitsumori')?.checked || false
+    });
+  });
+  // Schedule rows
+  data._schedRows = [];
+  document.querySelectorAll('#sched-body tr').forEach(tr => {
+    const inp = tr.querySelectorAll('input');
+    data._schedRows.push({ month: inp[0]?.value || '', content: inp[1]?.value || '' });
+  });
+  return data;
+}
+
+function applyFormData(data) {
+  if (!data) return;
+  document.querySelectorAll('input[id], textarea[id], select[id]').forEach(el => {
+    if (el.type === 'radio' || el.type === 'checkbox') return;
+    if (data[el.id] !== undefined) el.value = data[el.id];
+  });
+  Object.keys(data).filter(k => k.startsWith('_r_')).forEach(k => {
+    const radio = document.querySelector(`input[type="radio"][name="${k.slice(3)}"][value="${data[k]}"]`);
+    if (radio) radio.checked = true;
+  });
+  Object.keys(data).filter(k => k.startsWith('_cb_')).forEach(k => {
+    const cb = document.getElementById(k.slice(4));
+    if (cb) cb.checked = data[k];
+  });
+  if (data._expenseRows) {
+    const tbody = document.getElementById('expense-body');
+    tbody.innerHTML = '';
+    expRowCount = 0;
+    const catOpts = `<option value="">選択</option>
+      <option>機械装置・システム等費</option><option>クラウド使用料</option>
+      <option>広報費</option><option>展示会等出展費</option><option>開発費</option>
+      <option>借料</option><option>専門家費用</option><option>委託費</option>
+      <option>外注費</option><option>研修費</option><option>運搬費</option><option>雑役務費</option>`;
+    data._expenseRows.forEach((r, i) => {
+      expRowCount++;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="text-align:center;font-weight:600;">${i+1}</td>
+        <td><select class="exp-cat" onchange="calcTotal()">${catOpts}</select></td>
+        <td><input type="text" class="exp-name" placeholder="品名・内容"></td>
+        <td><input type="number" class="exp-price" min="0" placeholder="0" oninput="calcRow(this)"></td>
+        <td><input type="number" class="exp-qty" min="1" value="1" oninput="calcRow(this)"></td>
+        <td class="exp-subtotal" style="font-weight:600;text-align:right;">&#8212;</td>
+        <td style="text-align:center;"><input type="checkbox" class="exp-mitsumori" title="相見積あり"></td>
+        <td><button class="del-row" onclick="delRow(this)" title="削除">&#215;</button></td>`;
+      tbody.appendChild(tr);
+      tr.querySelector('.exp-cat').value      = r.cat;
+      tr.querySelector('.exp-name').value     = r.name;
+      tr.querySelector('.exp-price').value    = r.price;
+      tr.querySelector('.exp-qty').value      = r.qty;
+      tr.querySelector('.exp-mitsumori').checked = r.mitsumori;
+      calcRow(tr.querySelector('.exp-price'));
+    });
+    calcTotal();
+  }
+  if (data._schedRows) {
+    const tbody = document.getElementById('sched-body');
+    tbody.innerHTML = '';
+    data._schedRows.forEach(r => {
+      const tr = document.createElement('tr');
+      const m = r.month.replace(/"/g, '&quot;');
+      const c = r.content.replace(/"/g, '&quot;');
+      tr.innerHTML = `<td><input type="text" placeholder="例：2026年〇月" value="${m}"></td><td><input type="text" placeholder="実施内容" value="${c}"></td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  checkEligibility(); calcWage(); calcTotal();
+}
+
+function saveData(explicit) {
+  const data = collectFormData();
+  const company = data['company-name'] || '（会社名未入力）';
+  const key = currentSaveKey || ('hearing_' + Date.now());
+  currentSaveKey = key;
+  localStorage.setItem(key, JSON.stringify(data));
+  localStorage.setItem('hearing_last_key', key);
+  const dt = new Date(data.savedAt);
+  const dtStr = `${dt.getMonth()+1}/${dt.getDate()} ${dt.getHours()}:${String(dt.getMinutes()).padStart(2,'0')}`;
+  document.getElementById('save-status').innerHTML = `&#128190; <strong>${company}</strong>&#12288;最終保存：${dtStr}`;
+  if (explicit) showToast(`&#128190;「${company}」を保存しました`);
+}
+
+function newEntry() {
+  if (!confirm('新規入力に切り替えます。\n現在の入力を一時保存してから切り替えますか？\n\nOK → 保存して新規　キャンセル → 中止')) return;
+  saveData(false);
+  currentSaveKey = null;
+  document.querySelectorAll('input[id], textarea[id]').forEach(el => {
+    if (el.type === 'radio' || el.type === 'checkbox') { el.checked = false; return; }
+    el.value = '';
+  });
+  document.querySelectorAll('select[id]').forEach(el => el.selectedIndex = 0);
+  const tbody = document.getElementById('expense-body');
+  tbody.innerHTML = '';
+  expRowCount = 0;
+  addExpenseRow();
+  calcTotal();
+  document.getElementById('save-status').innerHTML = '&#10024; 新規入力モード　入力後「一時保存」を押してください';
+  switchTab(0);
+  showToast('新規入力モードに切り替えました');
+}
+
+function getSaveList() {
+  const saves = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith('hearing_') || key === 'hearing_last_key') continue;
+    try {
+      const d = JSON.parse(localStorage.getItem(key));
+      saves.push({
+        key,
+        savedAt:     d.savedAt || '',
+        companyName: d['company-name'] || '（会社名未入力）',
+        appFrame:    d['_r_app-frame']  || '─',
+        empCount:    d['emp-count']     || '─'
+      });
+    } catch(e) {}
+  }
+  return saves.sort((a, b) => (b.savedAt > a.savedAt ? 1 : -1));
+}
+
+function loadSave(key) {
+  const raw = localStorage.getItem(key);
+  if (!raw) { alert('データが見つかりません'); return; }
+  try {
+    const data = JSON.parse(raw);
+    currentSaveKey = key;
+    applyFormData(data);
+    hideManagement();
+    switchTab(0);
+    const company = data['company-name'] || '案件';
+    document.getElementById('save-status').innerHTML = `&#128194; <strong>${company}</strong>&#12288;読み込み済み`;
+    showToast(`「${company}」を読み込みました`);
+  } catch(e) { alert('データの読み込みに失敗しました'); }
+}
+
+function deleteSave(key) {
+  let name = '案件';
+  try { name = JSON.parse(localStorage.getItem(key))['company-name'] || name; } catch(e) {}
+  if (!confirm(`「${name}」の保存データを削除しますか？`)) return;
+  localStorage.removeItem(key);
+  if (currentSaveKey === key) currentSaveKey = null;
+  renderManagementTable();
+}
+
+function showManagement() {
+  document.getElementById('mgmt-overlay').style.display = 'flex';
+  renderManagementTable();
+}
+function hideManagement() {
+  document.getElementById('mgmt-overlay').style.display = 'none';
+}
+
+function renderManagementTable() {
+  const saves = getSaveList();
+  const tbody  = document.getElementById('mgmt-tbody');
+  document.getElementById('mgmt-count').textContent = saves.length + '件';
+  if (saves.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--muted);">保存データがありません</td></tr>';
+    return;
+  }
+  tbody.innerHTML = saves.map(s => {
+    const dt   = s.savedAt ? new Date(s.savedAt) : null;
+    const dtStr = dt ? `${dt.getFullYear()}/${dt.getMonth()+1}/${dt.getDate()} ${dt.getHours()}:${String(dt.getMinutes()).padStart(2,'0')}` : '─';
+    const cur   = s.key === currentSaveKey;
+    return `<tr${cur ? ' style="background:#eaf4fb;"' : ''}>
+      <td>${dtStr}</td>
+      <td style="font-weight:600;">${s.companyName.replace(/</g,'&lt;')}${cur ? ' <span style="color:var(--primary-light);font-size:10px;">&#9654; 編集中</span>' : ''}</td>
+      <td>${s.appFrame.replace(/</g,'&lt;')}</td>
+      <td style="text-align:right;">${s.empCount === '─' ? '─' : s.empCount + '人'}</td>
+      <td style="white-space:nowrap;">
+        <button onclick="loadSave('${s.key}')" style="background:var(--primary);color:white;border:none;border-radius:4px;padding:4px 12px;font-size:11px;cursor:pointer;margin-right:5px;font-weight:600;">読込</button>
+        <button onclick="deleteSave('${s.key}')" style="background:var(--danger);color:white;border:none;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer;">削除</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// 90秒ごとに自動保存（会社名が入っている場合のみ）
+setInterval(() => {
+  if (document.getElementById('company-name')?.value?.trim()) saveData(false);
+}, 90000);
+
+// ページ読み込み時に前回データの復元を提案
+window.addEventListener('load', () => {
+  const lastKey = localStorage.getItem('hearing_last_key');
+  if (!lastKey) return;
+  const raw = localStorage.getItem(lastKey);
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    const company = data['company-name'] || '案件';
+    const dt = data.savedAt ? new Date(data.savedAt) : null;
+    const dtStr = dt ? `${dt.getFullYear()}/${dt.getMonth()+1}/${dt.getDate()} ${dt.getHours()}:${String(dt.getMinutes()).padStart(2,'0')}` : '';
+    if (confirm(`前回の入力データがあります。\n会社名：${company}${dtStr ? '\n保存日時：' + dtStr : ''}\n\n読み込みますか？`)) {
+      currentSaveKey = lastKey;
+      applyFormData(data);
+      document.getElementById('save-status').innerHTML = `&#128194; <strong>${company}</strong>&#12288;復元済み`;
+    }
+  } catch(e) {}
+});
+
+</script>
+
+<!-- ===== 管理画面モーダル ===== -->
+<div id="mgmt-overlay" onclick="if(event.target===this)hideManagement()">
+  <div class="mgmt-modal">
+    <div class="mgmt-modal-header">
+      <h2>&#128203; 保存案件一覧　<span id="mgmt-count" style="font-size:12px;font-weight:400;color:var(--muted);"></span></h2>
+      <button class="mgmt-close" onclick="hideManagement()" title="閉じる">&#215;</button>
+    </div>
+    <div class="mgmt-modal-body">
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;">このブラウザに保存された案件の一覧です。「読込」でフォームに反映します。</p>
+      <table class="mgmt-table">
+        <thead>
+          <tr>
+            <th style="width:130px;">保存日時</th>
+            <th>会社名</th>
+            <th style="width:90px;">申請区分</th>
+            <th style="width:70px;text-align:right;">従業員数</th>
+            <th style="width:110px;">操作</th>
+          </tr>
+        </thead>
+        <tbody id="mgmt-tbody">
+          <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted);">読み込み中...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mgmt-modal-footer">
+      <button onclick="hideManagement()" style="background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:7px 20px;font-size:13px;cursor:pointer;font-family:inherit;">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<!-- トースト通知 -->
+<div id="toast"></div>
+</body>
+</html>
